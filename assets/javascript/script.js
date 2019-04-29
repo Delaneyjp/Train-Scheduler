@@ -1,6 +1,21 @@
 $(document).ready(function () {
 
-    var database = new Firebase("https://del-station-train-scheduler.firebaseio.com/");
+    // initialize Firebase -->
+
+    var config = {
+        apiKey: "AIzaSyD0FXQi87dYgRctXJLV5ZVzLQ6uNydMFwc",
+        authDomain: "del-station-train-scheduler.firebaseapp.com",
+        databaseURL: "https://del-station-train-scheduler.firebaseio.com",
+        projectId: "del-station-train-scheduler",
+        storageBucket: "del-station-train-scheduler.appspot.com",
+        messagingSenderId: "526843781579"
+    };
+    firebase.initializeApp(config);
+
+    // var database = new Firebase("https://del-station-train-scheduler.firebaseio.com");
+
+    var database = firebase.database();
+
 
     // Add train to Firebase
 
