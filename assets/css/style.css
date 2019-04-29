@@ -1,0 +1,66 @@
+
+body {
+    background-color: black;
+    color: whitesmoke;
+}
+.app-header {
+    background-color: rgba(255, 255, 255, 0.281);
+    height: 200px;
+    margin-top: -40px;
+    border-bottom: 2px groove whitesmoke;
+}
+
+.add-train-btn {
+    float: right;
+    margin-top: -80px;
+}
+
+/* Backgound Image */
+.hero-unit_background-image {
+    position: absolute;
+    z-index: -1;   
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/worldmap.jpg");
+    background-size: cover;
+    opacity: 0.30;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  #train-table {
+      border: 5px groove whitesmoke;
+      min-height: 600px;
+  }
+
+  .btn {
+        background-color: rgba(245, 245, 245, 0.9);
+        color: black;
+    }
+
+  /* Table CSS */
+  th {
+      font-weight: 900;
+  }
+
+  td {
+      font-weight: bold;
+  }
+
+  tr{
+      border-bottom: 1px solid whitesmoke;
+  }
+
+  .control-label {
+      color: black;
+  }
+
+  .modal-title, h4 {
+      color: black;
+  }
+
+  .cancel-button {
+      margin-left: -100px;
+  }

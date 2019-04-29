@@ -6,45 +6,148 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Train Scheduler- Del Station</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
-    <script src="/assets/javascript/script.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.0.js"
+        integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js"></script>
+    <!-- link to firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
 </head>
 
 <body>
-    <div class="hero-unit_background-image"></div>
-
-    <!-- Navbar -->
-    <nav class="template-navbar text-center">
-        <h1>Del Station</h1>
-        <h2>Anytime, Anywhere Train Scheduler</h2>
-    </nav>
-
-
 
     <div class="wrapper">
 
-        <!--  -->
-        <div class="container">
-            <div class="row">
 
-                <div class="col-4 text-center">
-                    <!--  -->
+        <!-- Background Picture -->
+        <div class="hero-unit_background-image"></div>
+
+
+        <!-- Navbar -->
+        <div class="jumbotron jumbotron-fluid app-header">
+            <div class="container">
+                <h1 class="display-4">Del Station</h1>
+                <p class="lead">Anytime, Anywhere Train Scheduler</p>
+
+                <!-- Click Button to open Modal, housing Form -->
+                <div class="modalBtn">
+                    <button type="button" class="btn btn-outline-dark btn-lg add-train-btn" data-toggle="modal"
+                        data-target="#addTrainForm">Add
+                        Train</button>
                 </div>
-
-                <div class="col-8">
-                    <!--  -->
-                </div>
-
             </div>
         </div>
+
+        <div class="container">
+
+            <!-- Modal Opens -->
+            <div class="modal fade" id="addTrainForm">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add a Train</h4>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Train Submission Form</h4>
+                            <p class="text-muted">Please Complete Form</p>
+
+                            <form class="form-horizontal">
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" for="name">Train Name</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" id="trainNameInput" type="text" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" for="name">Destination</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" id="destinationInput" type="text"
+                                            placeholder="City, State">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" for="name">Arrival Time</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" id="arrivalTimeInput" type="text"
+                                            placeholder="HH:mm - military time">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-md-3" for="name">Frequency (min)</label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" id="frequencyInput" type="text"
+                                            placeholder="minutes">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-md btn-danger cancel-button"
+                                        data-dismiss="modal">Cancel</button>
+                                    <span>
+                                        <button class="btn btn-md btn-success sumbit-button" input type="submit"
+                                            value="Submit">Submit</button>
+                                    </span>
+                            </form>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- App -->
+        <div class="row">
+
+            <!-- List of Trains Table -->
+            <div class="col-12 text-center" id="train-table">
+                <h3>CURRENT TRAIN SCHEDULE</h3>
+
+                <!-- Train Schedule Panel -->
+
+                <table class="table" id="trainTable">
+                    <thead class="table thead-light">
+                        <tr>
+                            <th scope="col" id="train-column">Train Name</th>
+                            <th scope="col" id="train-destination">Destination</th>
+                            <th scope="col" id="train-freq">Frequency (min)</th>
+                            <th scope="col" id="train-arrival">Arrival Time</th>
+                            <th scope="col" id="train-minutesAway">Minutes Away</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trainEntries">
+                        <!-- 
+                            <tr>
+                                <th scope="row" id="train-column">Del Primary Train</th> 
+                                <td id="train-destination">Virginia</td>
+                                <td id="train-freq">90</td>
+                                <td id="train-arrival">14:25</td>
+                                <td id="train-minutesAway">30</td> 
+                            </tr>
+                            -->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
 
     </div>
 
 
 </body>
+<script src="assets/javascript/script.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
