@@ -1,17 +1,5 @@
 $(document).ready(function () {
 
-    //initialize Firebase
-
-    var config = {
-        apiKey: "AIzaSyD0FXQi87dYgRctXJLV5ZVzLQ6uNydMFwc",
-        authDomain: "del-station-train-scheduler.firebaseapp.com",
-        databaseURL: "https://del-station-train-scheduler.firebaseio.com",
-        projectId: "del-station-train-scheduler",
-        storageBucket: "del-station-train-scheduler.appspot.com",
-        messagingSenderId: "526843781579"
-    };
-    firebase.initializeApp(config);
-
     var database = new Firebase("https://del-station-train-scheduler.firebaseio.com/");
 
     // Add train to Firebase
@@ -67,7 +55,7 @@ $(document).ready(function () {
         }
 
         // Add each train's data into the table 
-        $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrivalTime + "</td><td>" + nextTrain + "</td></tr>");
+        $("#trainTable > tbody").append("<tr><th>" + trainName + "</th><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrivalTime + "</td><td>" + nextTrain + "</td></tr>");
     });
 
     // Start Clock With Current Time

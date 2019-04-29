@@ -13,11 +13,10 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.4.0.js"
         integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <!-- ajax -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/x.y.z/moment.min.js"></script>
-    <!-- link to firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
-
 </head>
 
 <body>
@@ -147,6 +146,20 @@
 
     </div>
 
+    <!-- link to firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+    <!-- initialize Firebase -->
+    <script>
+        var config = {
+            apiKey: "AIzaSyD0FXQi87dYgRctXJLV5ZVzLQ6uNydMFwc",
+            authDomain: "del-station-train-scheduler.firebaseapp.com",
+            databaseURL: "https://del-station-train-scheduler.firebaseio.com",
+            projectId: "del-station-train-scheduler",
+            storageBucket: "del-station-train-scheduler.appspot.com",
+            messagingSenderId: "526843781579"
+        };
+        firebase.initializeApp(config);
+    </script>
 
 </body>
 <script src="assets/javascript/script.js"></script>
