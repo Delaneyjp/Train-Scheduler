@@ -12,20 +12,31 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-    // var database = new Firebase("https://del-station-train-scheduler.firebaseio.com");
-
+    // Create a variable to reference the database.
     var database = firebase.database();
 
 
     // Add train to Firebase
 
-    $("#sumbitNewTrain").on("click", function () {
+    $("#submitButton").on("click", function () {
         // Grabs train input
         var trainName = $("#trainNameInput").val().trim();
         var destination = $("#destinationInput").val().trim();
         var arrivalTime = $("#arrivalTimeInput").val().trim();
         var frequency = $("#frequencyInput").val().trim();
         var update = "";
+
+        console.log(trainName);
+        console.log(destination);
+        console.log(arrivalTime);
+        console.log(frequency);
+
+        // database.ref().push({
+        //     trainName: trainName,
+        //     destination: destination,
+        //     arrivalTime: arrivalTime,
+        //     frequency: frequency,
+        // });
 
         // temporary object to holding train data
         var newTrain = {
@@ -36,23 +47,21 @@ $(document).ready(function () {
         }
 
         // Upload train data to Firebase
-        database.push(newTrain);
+        // database.push
+        database.ref().push(newTrain);
 
-        // Clears all of the text-boxes
-        $("#trainNameInput").val("");
-        $("#destinationInput").val("");
-        $("#arrivalTimeInput").val("");
-        $("#frequencyInput").val("");
     });
 
-    // When a firebase event is detected, add a row for the new train
-    database.on("child_added", function (childSnapshot, prevChildKey) {
 
-        // Store everything into a variable.
+    // // When a firebase event is detected, add a row for the new train
+    database.ref().on("child_added", function (childSnapshot) {
+
+        //     // Store everything into a variable.
         var trainName = childSnapshot.val().trainName;
         var destination = childSnapshot.val().destination;
         var arrivalTime = childSnapshot.val().arrivalTime;
         var frequency = childSnapshot.val().frequency;
+
 
         // Calculate mins to next train
         var currentTime = moment();
@@ -73,7 +82,7 @@ $(document).ready(function () {
         $("#trainTable > tbody").append("<tr><th>" + trainName + "</th><td>" + destination + "</td><td>" + frequency + "</td><td>" + arrivalTime + "</td><td>" + nextTrain + "</td></tr>");
     });
 
-    // Start Clock With Current Time
+    // // Start Clock With Current Time
     function StartClockNow() {
         clockInterval = setInterval(function () {
             //Display clock
@@ -91,7 +100,7 @@ $(document).ready(function () {
                     var arrivalTime = childSnapshot.val().arrivalTime;
                     var frequency = childSnapshot.val().frequency;
 
-                    // Calculate mins to next train
+                    // // Calculate mins to next train
                     var currentTime = moment();
                     arrivalTime = moment(arrivalTime, "HH mm");
 
@@ -117,5 +126,4 @@ $(document).ready(function () {
 
     $("#currentTime").html(moment().format("H:mm"));
     StartClockNow()
-
 });
