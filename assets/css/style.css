@@ -84,8 +84,12 @@ body {
     td {
         font-weight: 100;
         font-size: 11px;
+    }
+    #train-table h3 {
+        font-size: 25px;
 
-    } 
+    }
+     
   }
 
   @media screen and (max-width: 375px) {
@@ -118,4 +122,10 @@ body {
     .jumbotron {
         height: 150px;
     }
+
+    #train-table h3 {
+        font-size: 15px;
+
+    }
+
   }
