@@ -40,8 +40,12 @@
             </div>
         </div>
 
+
+
         <div class="container">
 
+
+            <div id="currentTime"></div>
             <!-- Modal Opens -->
             <div class="modal fade" id="addTrainForm">
                 <div class="modal-dialog">
@@ -105,6 +109,14 @@
         <!-- App -->
         <div class="row">
 
+            <!-- Display Clock -->
+            <br>
+            <div>
+                <p id="currentTime"></p>
+            </div>
+            <br>
+
+
             <!-- List of Trains Table -->
             <div class="col-12 text-center" id="train-table">
                 <h3>CURRENT TRAIN SCHEDULE</h3>
@@ -124,14 +136,14 @@
                     <tbody id="trainEntries">
 
 
-                        <!-- Hardcoded until I get database to work -->
+                        <!-- Hardcoded until I get database to work
                         <tr>
                             <th scope="row" id="train-column">Del Primary Train</th>
                             <td id="train-destination">Virginia</td>
                             <td id="train-freq">90</td>
                             <td id="train-arrival">14:25</td>
                             <td id="train-minutesAway">30</td>
-                        </tr>
+                        </tr> -->
 
                     </tbody>
                 </table>
@@ -144,14 +156,12 @@
     </div>
 
 
-    <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- link to firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
 
     <!-- Moment.js -->
-    <script>"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"</script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

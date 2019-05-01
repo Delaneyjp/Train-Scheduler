@@ -15,6 +15,13 @@ body {
     margin-top: -80px;
 }
 
+#currentTime {
+    text-align: center;
+    font-weight: bold;
+    border: 1px groove whitesmoke;
+}
+
+
 /* Backgound Image */
 .hero-unit_background-image {
     position: absolute;
