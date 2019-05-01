@@ -71,5 +71,51 @@ body {
   @media screen and (max-width: 500px) {
     .lead {
         font-size: 20px;
+    } 
+    .add-train-btn {
+        float: left;
+        margin-top: -10px;
+    }
+    th {
+        font-weight: 900;
+        font-size: 11px;
+    }
+  
+    td {
+        font-weight: 100;
+        font-size: 11px;
+
+    } 
+  }
+
+  @media screen and (max-width: 375px) {
+    .lead {
+        font-size: 15px;
+    } 
+    .add-train-btn {
+        float: left;
+        margin-top: -10px;
+    }
+    th {
+        font-weight: 500;
+        font-size: 7px;
+    }
+  
+    td {
+        font-weight: 100;
+        font-size: 7px;
+
+    } 
+
+    .app-header h1 {
+        font-size: 30px;
+    }
+
+    .btn {
+        font-size: 10px;
+    }
+
+    .jumbotron {
+        height: 150px;
     }
   }
